@@ -12,7 +12,7 @@ Access keys are long-term credentials for an IAM user or the AWS account root us
 - download access keys csv and keep them somewhere secure
 ![access keys csv](AWS/Images/3.png)
 
-** :triangular_flag_on_post: never share the secret access key for security reasons and best practices as well**
+:triangular_flag_on_post: **never share the secret access key for security reasons and best practices as well**
 - Secret Access key cannot be retrieved if lost or misplaced
 - If Secret Access key is lost you can delete the Access key and create a new one
 
