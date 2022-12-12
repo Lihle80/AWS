@@ -4,7 +4,7 @@ Access keys are long-term credentials for an IAM user or the AWS account root us
 ### Step 1: Creating Acces keys
 
 - On the AWS console home screen click on the drop menu under the account name and select security credentials
-![drop menu](Creating-Access-Keys-and-setting-up-AWS-CLI-v2-tools/Images/1.png)
+![drop menu](https://github.com/Lihle80/AWS/blob/main/Creating-Access-Keys-and-setting-up-AWS-CLI-v2-tools/Images/1.png)
 
 - under Access keys for CLI, SDK, & API access create an access key
 ![create access key](Creating-Access-Keys-and-setting-up-AWS-CLI-v2-tools/Images/2.png)
