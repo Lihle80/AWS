@@ -21,7 +21,7 @@ VPC endpoints allow private connections from services in a VPC to AWS services r
 - We wont be implementing this with private DNS so we will uncheck _Enable DNS name_ under _Additional settings_
 
 **_See Screenshot Below_**
-![picture5](https://github.com/Lihle80/AWS/blob/main/VPC-Endpoint-Interface/images/5.-under-additional-2C-uncheck-enable-dns-name.png)
+![picture5](https://github.com/Lihle80/AWS/blob/main/VPC-Endpoint-Interface/images/5.-under-additional,-2C-uncheck-enable-dns-name.png)
 - Select the Security which will apply to your interface endpoint and create endpoint
 ![picture6](https://github.com/Lihle80/AWS/blob/main/VPC-Endpoint-Interface/images/6.-select-A4l-SG-.png)
 ![picture7](https://github.com/Lihle80/AWS/blob/main/VPC-Endpoint-Interface/images/7.-endpoint-is-available-and-associated-with-VPC.png)
@@ -36,7 +36,7 @@ VPC endpoints allow private connections from services in a VPC to AWS services r
 - One final Configuration is required before this setup is complete
 - Navigate to SNS, under _Text Messaging_ add recipients numbe, select _Add phone number_
 
-![picture12](https://github.com/Lihle80/AWS/blob/main/VPC-Endpoint-Interface/images/12.-move-to-sns-2C-under-text-messaging-add-phone-number.png)
+![picture12](https://github.com/Lihle80/AWS/blob/main/VPC-Endpoint-Interface/images/12.-move-to-sns,-2C-under-text-messaging-add-phone-number.png)
 - Once you have added the number messages will now be sent from your terminal
 
 **_See Screenshot Below_**
@@ -46,7 +46,7 @@ VPC endpoints allow private connections from services in a VPC to AWS services r
 - Navigate to VPC and select the endpoint and select modify
 
 **_See Screenshot Below_**
-![picture15](https://github.com/Lihle80/AWS/blob/main/VPC-Endpoint-Interface/images/15.-move-to-vpc-and-select-endpoint-2C-and-select-modify.png)
+![picture15](https://github.com/Lihle80/AWS/blob/main/VPC-Endpoint-Interface/images/15.-move-to-vpc-and-select-endpoint,-2C-and-select-modify.png)
 - enable private DNS and save changes
 
 **_See Screenchot Below_**
