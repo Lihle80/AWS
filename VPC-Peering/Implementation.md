@@ -17,7 +17,7 @@ A VPC peering connection is a networking connection between two VPCs that enable
 - Then select VPC _Requester_ and _Acceptor_
 
 **_See Screenshot Below_**
-![picture3](https://github.com/Lihle80/AWS/blob/main/VPC-Peering/images/3.-nav-to-VPC-peering-connections-select-create-connection-and-select-VPC-requester-and-acceptor.png)
+![picture3](https://github.com/Lihle80/AWS/blob/main/VPC-Peering/images/3.-nav-to-VPC-peering-connections-select,-create-connection-and-select-VPC-requester-and-acceptor.png)
 
 - Accept VPC connection, since all VPC's are in the same account we can accept the connection ourselves
 
@@ -30,7 +30,7 @@ A VPC peering connection is a networking connection between two VPCs that enable
 - Edit the VPC route table for each VPC, enter the other VPC's IP address and set Peering connection as target
 
 **_See Screenshot Below**_
-![picture6](https://github.com/Lihle80/AWS/blob/main/VPC-Peering/images/6.-edit-Route-table-add-Ip-for-other-VPC-and-select-peering-connection-as-target.png)
+![picture6](https://github.com/Lihle80/AWS/blob/main/VPC-Peering/images/6.-edit-Route-table,-add-Ip-for-other-VPC-and-select-peering-connection-as-target.png)
 
 ### Step 4: Configure Security Group 🧱
 - Navigate to Security groups and locate security group for the VPC's being connected
