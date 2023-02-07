@@ -11,3 +11,21 @@ Gateway endpoints provide reliable connectivity to Amazon S3 and DynamoDB withou
 - select _s3_ and _gateway_ type
 ![picture4](https://github.com/Lihle80/AWS/blob/main/VPC-Endpoint-Gateway/images/4.-select-s3-and-gateway-type.png)
 - Select the route table associated with the subnet where the instance exists
+![picture5](https://github.com/Lihle80/AWS/blob/main/VPC-Endpoint-Gateway/images/5.-select-RT.png)
+- under _Policy_ set preferred policy
+![picture6](https://github.com/Lihle80/AWS/blob/main/VPC-Endpoint-Gateway/images/6.-set-full-access.png)
+- a Prefix list will be added to your Route table, navigate to your Route table to confirm
+
+**_See Screenshot Below_**
+![picture7](https://github.com/Lihle80/AWS/blob/main/VPC-Endpoint-Gateway/images/7.-prefix-list-added-to-RT.png)
+- now we are able to connect to s3
+- test this by listing buckets from instance
+
+**_See Screenshot Below_**
+![picture8](https://github.com/Lihle80/AWS/blob/main/VPC-Endpoint-Gateway/images/8.-able-to-connect-to-bucket-using-endpoint-gateway.png)
+- One more test, there is a file stored in a S3 bucket i will attempt to copy it to the instance
+![picture](https://github.com/Lihle80/AWS/blob/main/VPC-Endpoint-Gateway/images/the-bucket-with-file.png)
+- run ```aws s3 cp {file-URI-in-bucket} {name-of-file-to-be-stored-on-instance}``` to copy file from S3 to instance
+
+**_See Screenshot Below_**
+![picture9](https://github.com/Lihle80/AWS/blob/main/VPC-Endpoint-Gateway/images/9.-copy-file-from-bucket-onto-instance.png)
