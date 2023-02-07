@@ -20,9 +20,7 @@ Gateway endpoints provide reliable connectivity to Amazon S3 and DynamoDB withou
 ![picture7](https://github.com/Lihle80/AWS/blob/main/VPC-Endpoint-Gateway/images/7.-prefix-list-added-to-RT.png)
 - now we are able to connect to s3
 - test this by listing buckets from instance
-
-**_See Screenshot Below_**
-![picture8](https://github.com/Lihle80/AWS/blob/main/VPC-Endpoint-Gateway/images/8.-able-to-connect-to-bucket-using-endpoint-gateway.png)
+- ![picture8](https://github.com/Lihle80/AWS/blob/main/VPC-Endpoint-Gateway/images/8.-able-to-connect-to-bucket-using-endpoint-gateway.png) 
 - One more test, there is a file stored in a S3 bucket i will attempt to copy it to the instance
 ![picture](https://github.com/Lihle80/AWS/blob/main/VPC-Endpoint-Gateway/images/the-bucket-with-file.png)
 - run ```aws s3 cp {file-URI-in-bucket} {name-of-file-to-be-stored-on-instance}``` to copy file from S3 to instance
