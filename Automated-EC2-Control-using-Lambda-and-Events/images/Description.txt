@@ -1,0 +1,2 @@
+Creating 2 ec2 instances and lambda functions to stop, start and protect those instancesy
+

@@ -1,0 +1,1 @@
+going to establish a hybrid network connectivity, direct connect will be simulated with a VPC peer, then configure R53 endpoints and on-prem DNS server then verify we can reslove endpoints, then configure outbound endpoints and verify we can resolve them
