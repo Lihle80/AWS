@@ -1,0 +1,1 @@
+implementing a dynamic Highly Available Accelerated VPN which uses BGP for route advertisement, on-premisis infrastructure will be simulated within AWS by configuring 2 linux based servers which use strongswan and FRR to do BGP
