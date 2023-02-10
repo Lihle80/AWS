@@ -65,9 +65,12 @@ I am going to implement a hybrid DNS. A direct connect will be simulated with a 
 - edit the named.conf file in the on-premisis DNS servers
 - run ```sudo find / -name named.conf 2> /dev/null``` to find the file
 - in the file enter the following entry
+
 ``` zone "your-forwarding-domain.com" {
 type forward;
 forward only;
 forwarders { 8.8.8.8; 8.8.4.4; };
 };```
+
 **_See Screenshot Below_**
+![picture19](https://github.com/Lihle80/AWS/blob/main/Hybrid-R53-and-On-premises-DNS/images/19.-enter-this(do-the-same-for-other-DNS).png))
