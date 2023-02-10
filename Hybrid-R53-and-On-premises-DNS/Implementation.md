@@ -10,7 +10,7 @@ I am going to implement a hybrid DNS. A direct connect will be simulated with a 
 - We Will firstly check if there is a connection between the on-premisis environmt and AWS environment
 - We will firstly copy the private IP of the on-premisis instance running the application and attempt to ping it
 
-**_See Screenshot Below**_
+**_See Screenshot Below_**
 ![picture2](https://github.com/Lihle80/AWS/blob/main/Hybrid-R53-and-On-premises-DNS/images/2.-copied-on-prem-app-instance-private-ip.png)
 - run ```ping {instance IP}``` on the terminal of any of the AWS instances to check if there is a connection
 
@@ -88,3 +88,25 @@ DNS2=56.88.9.10
 - Now DNS should be resolving and you should be getting a response
 
 ![picture22](https://github.com/Lihle80/AWS/blob/main/Hybrid-R53-and-On-premises-DNS/images/22.-DNS-name-is-now-resloving.png)
+- Now we are gonna create an outbound endpoint in Route53
+
+![picture23](https://github.com/Lihle80/AWS/blob/main/Hybrid-R53-and-On-premises-DNS/images/23.-create-outbound-endpoint.png)
+- Select the AWS VPC
+
+![picture24](https://github.com/Lihle80/AWS/blob/main/Hybrid-R53-and-On-premises-DNS/images/24.-select-aws-VPC.png)
+- Select AZ's and subnets
+
+![picture25](https://github.com/Lihle80/AWS/blob/main/Hybrid-R53-and-On-premises-DNS/images/25.-select-AZ's-and-subnets.png)
+- under rules create a new rule
+
+![picture26](https://github.com/Lihle80/AWS/blob/main/Hybrid-R53-and-On-premises-DNS/images/26.-create-new-rule.png)
+- Select the AWS VPC to use this VPC and specify the Zone thats located within the on-premisis environment
+
+![picture27](https://github.com/Lihle80/AWS/blob/main/Hybrid-R53-and-On-premises-DNS/images/27.-select-on-prem-DNS-zone-as-name-and-select-AWS-VPC.png)
+- Under _Targets_ enter the private on-premisis DNS server IP's
+
+![picture28](https://github.com/Lihle80/AWS/blob/main/Hybrid-R53-and-On-premises-DNS/images/28.-select-endpoint-and-enter-the-on-prem-DNS-private-IP's-as-targets.png)
+- Now from the AWS instance, the on-premisis domain name should be resolving and ping should be working
+
+![picture29](https://github.com/Lihle80/AWS/blob/main/Hybrid-R53-and-On-premises-DNS/images/29.-connect-to-aws-instance-and-ping-DNS-name.png)
+- At this point the Hybrid R53 on-premisis DNS intergration has been implemented successfuly
