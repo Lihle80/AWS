@@ -41,7 +41,7 @@ I am going to implement a hybrid DNS. A direct connect will be simulated with a 
 - ping from AWS to On-premisis environment now works
 
 **_See Screenshot Below_**
-![picture10](https://github.com/Lihle80/AWS/blob/main/Hybrid-R53-and-On-premises-DNS/images/10.-ping-from-aws-to-on-prem-works.png)
+- ![picture10](https://github.com/Lihle80/AWS/blob/main/Hybrid-R53-and-On-premises-DNS/images/10.-ping-from-aws-to-on-prem-works.png)
 
 ### Setup the DNS intergration
 - If we try to ping the DNS name of the App it does not work
@@ -73,7 +73,7 @@ forwarders { 8.8.8.8; 8.8.4.4; };
 };
 ```
 **_See Screenshot Below_**
-![picture19](https://github.com/Lihle80/AWS/blob/main/Hybrid-R53-and-On-premises-DNS/images/19.-enter-this(do-the-same-for-other-DNS).png))
+- ![picture19](https://github.com/Lihle80/AWS/blob/main/Hybrid-R53-and-On-premises-DNS/images/19.-enter-this(do-the-same-for-other-DNS).png))
 - do this for both DNS servers
 - Now we need to configure the on-premisis App server to use these DNS servers, so connect to the App instance and do the following
 - edit the ifcfg-eth0 file, run
@@ -84,7 +84,7 @@ DNS1=76.7.7.5
 DNS2=56.88.9.10
 ```
 **_See Screenshot Below_**
-![picture21](https://github.com/Lihle80/AWS/blob/main/Hybrid-R53-and-On-premises-DNS/images/21.-add-the-following-to-sudo-nano-etc-sysconfig-network-scripts-ifcfg-eth0.png)
+- ![picture21](https://github.com/Lihle80/AWS/blob/main/Hybrid-R53-and-On-premises-DNS/images/21.-add-the-following-to-sudo-nano-etc-sysconfig-network-scripts-ifcfg-eth0.png)
 - Now DNS should be resolving and you should be getting a response
 
 ![picture22](https://github.com/Lihle80/AWS/blob/main/Hybrid-R53-and-On-premises-DNS/images/22.-DNS-name-is-now-resloving.png)
