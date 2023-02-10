@@ -65,12 +65,26 @@ I am going to implement a hybrid DNS. A direct connect will be simulated with a 
 - edit the named.conf file in the on-premisis DNS servers
 - run ```sudo find / -name named.conf 2> /dev/null``` to find the file
 - in the file enter the following entry
-
-``` zone "your-forwarding-domain.com" {
+```
+zone "your-forwarding-domain.com" {
 type forward;
 forward only;
 forwarders { 8.8.8.8; 8.8.4.4; };
-};```
-
+};
+```
 **_See Screenshot Below_**
 ![picture19](https://github.com/Lihle80/AWS/blob/main/Hybrid-R53-and-On-premises-DNS/images/19.-enter-this(do-the-same-for-other-DNS).png))
+- do this for both DNS servers
+- Now we need to configure the on-premisis App server to use these DNS servers, so connect to the App instance and do the following
+- edit the ifcfg-eth0 file, run
+```sudo nano /etc/sysconfig/network-scripts/ifcfg-eth0```
+- enter the following at the end of the file
+```
+DNS1=76.7.7.5
+DNS2=56.88.9.10
+```
+**_See Screenshot Below_**
+![picture21](https://github.com/Lihle80/AWS/blob/main/Hybrid-R53-and-On-premises-DNS/images/21.-add-the-following-to-sudo-nano-etc-sysconfig-network-scripts-ifcfg-eth0.png)
+- Now DNS should be resolving and you should be getting a response
+
+![picture22](https://github.com/Lihle80/AWS/blob/main/Hybrid-R53-and-On-premises-DNS/images/22.-DNS-name-is-now-resloving.png)
