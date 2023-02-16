@@ -11,4 +11,13 @@ A site-to-site VPN tunnel encrypts traffic at one end and sends it to the other 
 - Navigate to VPC and create a Customer Gateway
 
 ![picture2](https://github.com/Lihle80/AWS/blob/main/Advanced-Site-to-Site-VPN/images/2.-s1-nav-to-VPC-and-create-CGW.png)
-- 
+- Select a private BGP ASN within the given range and enter the on-premisis router IP
+- do the same for both routers
+
+**_See Screenshots Below_**
+![picture3](https://github.com/Lihle80/AWS/blob/main/Advanced-Site-to-Site-VPN/images/3.-CGW-for-on-prem-router(use-Public-IP-of-on-prem-router).png)
+![picture4](https://github.com/Lihle80/AWS/blob/main/Advanced-Site-to-Site-VPN/images/4.-do-the-same-for-router-2(BGP-can-be-anything-in-a-specified-range).png)
+- Customer Gateways Successfully created
+
+![picture5](https://github.com/Lihle80/AWS/blob/main/Advanced-Site-to-Site-VPN/images/5.-CGW's-successfully-created.png)
+
