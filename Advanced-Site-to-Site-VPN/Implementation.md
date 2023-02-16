@@ -1,5 +1,5 @@
 # Advanced Site-to-Site VPN
-A site-to-site VPN tunnel encrypts traffic at one end and sends it to the other site over the public Internet where it is decrypted and routed on to its destination.
+A site-to-site VPN tunnel encrypts traffic at one end and sends it to the other site over the public Internet where it is decrypted and routed on to its destination. We are going to be implementing a dynamic Highly Available Accelerated VPN which uses BGP for route advertisement, on-premisis infrastructure will be simulated within AWS by configuring 2 linux based servers which use strongswan and FRR to do BGP.
 
 ## The Setup
 This [Link](https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/create/review?templateURL=https://learn-cantrill-labs.s3.amazonaws.com/aws-hybrid-bgpvpn/BGPVPNINFRA.yaml&stackName=ADVANCEDVPNDEMO) will setup everything needed for this demo via cloudformation
