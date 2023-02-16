@@ -42,8 +42,9 @@ This [Link](https://console.aws.amazon.com/cloudformation/home?region=us-east-1#
 - follow the [Link](https://github.com/Lihle80/AWS/blob/main/Advanced-Site-to-Site-VPN/images/DemoValueTemplate.txt) and extract the information onto this file, this simply makes the process for configuring our VPN tunnels simpler when we have all the values we need in one place.
 - when the information is successfully extracted in the onto the file it will look something like this
 
-### Configuring Routers
+
 ![picture14](https://github.com/Lihle80/AWS/blob/main/Advanced-Site-to-Site-VPN/images/14.-info-successfuly-extracted.png)
+### Configuring Routers
 - Navigate to EC2 and connect to Router1
 
 ![picture15](https://github.com/Lihle80/AWS/blob/main/Advanced-Site-to-Site-VPN/images/15.-connet-to-router-1-and-config-it.png)
