@@ -20,7 +20,7 @@ This [Link](https://console.aws.amazon.com/cloudformation/home?region=us-east-1#
 - Create a Transit Gateway and attech it to the VPC
 - attechment created
 
-![picture6](https://github.com/Lihle80/AWS/blob/main/Advanced-Site-to-Site-VPN/images/6.-TGW-created-and-atteched-to-VPC%2C-create-more-attechments-to-on-prem-routers.png)
+![picture6](https://github.com/Lihle80/AWS/blob/main/Advanced-Site-to-Site-VPN/images/6.-TGW-created-and-atteched-to-VPC,-create-more-attechments-to-on-prem-routers.png)
 - Create a Transit gateway Attechment and select the VPN attechment type
 
 ![picture7](https://github.com/Lihle80/AWS/blob/main/Advanced-Site-to-Site-VPN/images/7.-select-TGW-and-select-VPN.png)
