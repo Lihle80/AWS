@@ -2,12 +2,9 @@
 A site-to-site VPN tunnel encrypts traffic at one end and sends it to the other site over the public Internet where it is decrypted and routed on to its destination.
 
 ## The Setup
-- 2 instances running a VPC
-- 4 instances running in a seperate VPC simulating a on-premisis environment, 2 instances acting as Routers and the other 2 as servers
+This [Link](https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/create/review?templateURL=https://learn-cantrill-labs.s3.amazonaws.com/aws-hybrid-bgpvpn/BGPVPNINFRA.yaml&stackName=ADVANCEDVPNDEMO) will setup everything needed for this demo via cloudformation
 
-![picture1](https://github.com/Lihle80/AWS/blob/main/Advanced-Site-to-Site-VPN/images/1.-6-instances-have-been-created(4-represent-on-prem-infrastructure).png)
-
-### Steps
+### Implementation
 - Navigate to VPC and create a Customer Gateway
 
 ![picture2](https://github.com/Lihle80/AWS/blob/main/Advanced-Site-to-Site-VPN/images/2.-s1-nav-to-VPC-and-create-CGW.png)
@@ -42,12 +39,53 @@ A site-to-site VPN tunnel encrypts traffic at one end and sends it to the other 
 ![picture12](https://github.com/Lihle80/AWS/blob/main/Advanced-Site-to-Site-VPN/images/12.-do-the-same-for-router-2-(these-contain-connection-config-of-each-VPN-connection).png)
 - do the same for the other connection as well
 - We need to extract information from those configuration files so we can configure our VPN connections
-- follow the ![Link](https://github.com/Lihle80/AWS/blob/main/Advanced-Site-to-Site-VPN/images/DemoValueTemplate.txt) and extract the information onto this file, this simply makes the process for configuring our VPN tunnels simpler when we have all the values we need in one place.
+- follow the [Link](https://github.com/Lihle80/AWS/blob/main/Advanced-Site-to-Site-VPN/images/DemoValueTemplate.txt) and extract the information onto this file, this simply makes the process for configuring our VPN tunnels simpler when we have all the values we need in one place.
 - when the information is successfully extracted in the onto the file it will look something like this
 
+### Configuring Routers
 ![picture14](https://github.com/Lihle80/AWS/blob/main/Advanced-Site-to-Site-VPN/images/14.-info-successfuly-extracted.png)
 - Navigate to EC2 and connect to Router1
 
 ![picture15](https://github.com/Lihle80/AWS/blob/main/Advanced-Site-to-Site-VPN/images/15.-connet-to-router-1-and-config-it.png)
-- 
+- run ```cd /home/ubuntu/demo_assets```
+- this will change your directory and then edit the ipsec files, enter the information we extracted as labelled in the ipsec.conf and ipsec.secrets files
+
+![picture16](https://github.com/Lihle80/AWS/blob/main/Advanced-Site-to-Site-VPN/images/16.-config-files-.png)
+- move all files to /etc directory and then give executable permissions to the ipsec script
+- run ```cp ipsec* /etc``` to copy all files beginning with ipsec to /etc
+- then run ```chmod +x /etc/ipsec-vti.sh``` to give executable permissions to ipsec-vti file
+- restart strongswan by running ```systemctl restart strongswan```
+- run ```ifconfig``` to confirm that new interfaces have been created, which confirms that configuration is successful
+
+![picture19](https://github.com/Lihle80/AWS/blob/main/Advanced-Site-to-Site-VPN/images/19.-confirmation-that-config-was-successful(do-the-same-for-router-2).png)
+- **do this for both routers**
+### Implementation Continued...
+- Navigate to VPC site-to-site connections and select a connection, under tunnel details it should tell you if the tunnel is up or down 
+
+![picture20](https://github.com/Lihle80/AWS/blob/main/Advanced-Site-to-Site-VPN/images/20.-nav-to-VPC-under-s2s-connections-select-a-connection-and-check-tunnel-details(under-details)-should-tell-you-if-IPsec-tunnel-is-up-or-down.png)
+- Connect to the on-premisis router and run the following script as follows
+
+![picture21](https://github.com/Lihle80/AWS/blob/main/Advanced-Site-to-Site-VPN/images/21.-open-on-prem-router-and-install-package(do-the-same-for-the-second-router).png)
+- naviagate to ```/var/snap/amazon-ssm-agent/6312```
+- then run```vtysh```
+- configure BGP as shown below
+
+**_See Screenshot Below_**
+![picture22](https://github.com/Lihle80/AWS/blob/main/Advanced-Site-to-Site-VPN/images/22.-configure-BGP-on-routers.png)
+- do this for both routers
+- move back to VPC site-to-site connections and select a connection and check if it is up
+
+![picture23](https://github.com/Lihle80/AWS/blob/main/Advanced-Site-to-Site-VPN/images/23.-under-s2s-you-can-see-that-BGP-is-Up-and-there-are-2-connections.png)
+- connection is now up
+
+### Test
+- Connect to AWS instance and ping On-premisis instance via its private IP
+
+![picture26](https://github.com/Lihle80/AWS/blob/main/Advanced-Site-to-Site-VPN/images/26.-ping-success(do-the-same-from-the-other-side-now).png)
+- ping success ✔️
+- do the same from the on-premisis environment
+
+![picture27](https://github.com/Lihle80/AWS/blob/main/Advanced-Site-to-Site-VPN/images/27.-ping-success.png)
+- ping success ✔️
+
 
