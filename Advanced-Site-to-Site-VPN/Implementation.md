@@ -41,4 +41,13 @@ A site-to-site VPN tunnel encrypts traffic at one end and sends it to the other 
 
 ![picture12](https://github.com/Lihle80/AWS/blob/main/Advanced-Site-to-Site-VPN/images/12.-do-the-same-for-router-2-(these-contain-connection-config-of-each-VPN-connection).png)
 - do the same for the other connection as well
+- We need to extract information from those configuration files so we can configure our VPN connections
+- follow the ![Link](https://github.com/Lihle80/AWS/blob/main/Advanced-Site-to-Site-VPN/images/DemoValueTemplate.txt) and extract the information onto this file, this simply makes the process for configuring our VPN tunnels simpler when we have all the values we need in one place.
+- when the information is successfully extracted in the onto the file it will look something like this
+
+![picture14](https://github.com/Lihle80/AWS/blob/main/Advanced-Site-to-Site-VPN/images/14.-info-successfuly-extracted.png)
+- Navigate to EC2 and connect to Router1
+
+![picture15](https://github.com/Lihle80/AWS/blob/main/Advanced-Site-to-Site-VPN/images/15.-connet-to-router-1-and-config-it.png)
+- 
 
