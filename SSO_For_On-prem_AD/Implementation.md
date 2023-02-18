@@ -10,7 +10,8 @@ AWS Single Sign-On (SSO) is a cloud-based service that makes it easy to centrall
 # Steps
 ### Set up the AWS SSO Directory
 **The first step is to set up the AWS SSO directory. This is where you will manage your users and groups, and where you will define your SSO policies. To set up the AWS SSO directory, follow these steps:**
-- In the AWS SSO console, choose the "Directories" tab.Choose "Add a directory", and then choose "AWS Managed Microsoft AD".
+- In the AWS SSO console, choose the "Directories" tab.
+- Choose "Add a directory", and then choose "AWS Managed Microsoft AD".
 - Enter a name for the directory and choose "Add directory".
 - Wait for the directory to be created, which can take up to an hour.
 - Configure AWS SSO for On-premise Active Directory
