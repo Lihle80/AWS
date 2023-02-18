@@ -2,7 +2,7 @@
 ### Introduction
 AWS Single Sign-On (SSO) is a cloud-based service that makes it easy to centrally manage SSO access to multiple AWS accounts and business applications. In this guide, I will walk you through the process of setting up AWS SSO for on-premise Active Directory (AD) users.
 ### Prerequisites
-- Before you can set up AWS SSO for on-premise Active Directory users, you must have the following:
+- **Before you can set up AWS SSO for on-premise Active Directory users, you must have the following:**
 - An AWS account with administrative privileges
 - An on-premise Active Directory domain with a trust relationship with the AWS Directory Service for Microsoft Active Directory
 - A user account in the on-premise Active Directory that has permission to read and write to the AWS SSO directory
