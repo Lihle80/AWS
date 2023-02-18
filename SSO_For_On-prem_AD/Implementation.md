@@ -2,19 +2,19 @@
 ### Introduction
 AWS Single Sign-On (SSO) is a cloud-based service that makes it easy to centrally manage SSO access to multiple AWS accounts and business applications. In this guide, I will walk you through the process of setting up AWS SSO for on-premise Active Directory (AD) users.
 ### Prerequisites
-- **Before you can set up AWS SSO for on-premise Active Directory users, you must have the following:**
+**Before you can set up AWS SSO for on-premise Active Directory users, you must have the following:**
 - An AWS account with administrative privileges
 - An on-premise Active Directory domain with a trust relationship with the AWS Directory Service for Microsoft Active Directory
 - A user account in the on-premise Active Directory that has permission to read and write to the AWS SSO directory
 
 # Steps
 ### Set up the AWS SSO Directory
-- **The first step is to set up the AWS SSO directory. This is where you will manage your users and groups, and where you will define your SSO policies. To set up the AWS SSO directory, follow these steps:**
+**The first step is to set up the AWS SSO directory. This is where you will manage your users and groups, and where you will define your SSO policies. To set up the AWS SSO directory, follow these steps:**
 - In the AWS SSO console, choose the "Directories" tab.Choose "Add a directory", and then choose "AWS Managed Microsoft AD".
 - Enter a name for the directory and choose "Add directory".
 - Wait for the directory to be created, which can take up to an hour.
 - Configure AWS SSO for On-premise Active Directory
-- **After you have set up the AWS SSO directory, you need to configure AWS SSO to use your on-premise Active Directory. To do this, follow these steps:**
+**After you have set up the AWS SSO directory, you need to configure AWS SSO to use your on-premise Active Directory. To do this, follow these steps:**
 - In the AWS SSO console, choose the "Settings" tab.
 - Under "Identity source", choose "Add new identity source".
 - Choose "On-premises" as the identity source type.
@@ -26,7 +26,7 @@ AWS Single Sign-On (SSO) is a cloud-based service that makes it easy to centrall
 - Choose "Test connection" to verify that AWS SSO can connect to your Active Directory domain.
 - Choose "Add source" to add your Active Directory as an identity source.
 - Assign Users to AWS SSO
-- **After you have configured AWS SSO to use your on-premise Active Directory, you need to assign your users to AWS SSO. To do this, follow these steps:**
+**After you have configured AWS SSO to use your on-premise Active Directory, you need to assign your users to AWS SSO. To do this, follow these steps:**
 - In the AWS SSO console, choose the "Users" tab.
 - Choose "Add user", and then enter the user's name and email address.
 - Choose "Create user".
@@ -34,7 +34,7 @@ AWS Single Sign-On (SSO) is a cloud-based service that makes it easy to centrall
 - Choose "Assign access" and then choose the AWS accounts and roles that the user should have access to.
 - Choose "Save changes" to assign the user to AWS SSO.
 ### Test Your Setup
-- **After you have assigned your users to AWS SSO, you should test your setup to ensure that it is working correctly. To do this, follow these steps:**
+**After you have assigned your users to AWS SSO, you should test your setup to ensure that it is working correctly. To do this, follow these steps:**
 - Sign out of your AWS account.
 - Go to the AWS SSO user portal URL that you specified when you set up AWS SSO.
 - Enter your email address and password.
