@@ -1,45 +1,136 @@
-# Setting up AWS Single Sign-On for On-premise Active Directory Users
-### Introduction
-AWS Single Sign-On (SSO) is a cloud-based service that makes it easy to centrally manage SSO access to multiple AWS accounts and business applications. In this guide, I will walk you through the process of setting up AWS SSO for on-premise Active Directory (AD) users.
-### Prerequisites
-**Before you can set up AWS SSO for on-premise Active Directory users, you must have the following:**
-- An AWS account with administrative privileges
-- An on-premise Active Directory domain with a trust relationship with the AWS Directory Service for Microsoft Active Directory
-- A user account in the on-premise Active Directory that has permission to read and write to the AWS SSO directory
+# Setting up AWS Single Sign-On for On-premises Active Directory Users
 
-# Steps
-### Set up the AWS SSO Directory
-**The first step is to set up the AWS SSO directory. This is where you will manage your users and groups, and where you will define your SSO policies. To set up the AWS SSO directory, follow these steps:**
-- In the AWS SSO console, choose the "Directories" tab.
-- Choose "Add a directory", and then choose "AWS Managed Microsoft AD".
-- Enter a name for the directory and choose "Add directory".
-- Wait for the directory to be created, which can take up to an hour.
-- Configure AWS SSO for On-premise Active Directory.  
-**After you have set up the AWS SSO directory, you need to configure AWS SSO to use your on-premise Active Directory. To do this, follow these steps:**
-- In the AWS SSO console, choose the "Settings" tab.
-- Under "Identity source", choose "Add new identity source".
-- Choose "On-premises" as the identity source type.
-- _Enter the following information:_
-- Active Directory domain name
-- Active Directory NetBIOS name
-- Domain controller IP address
-- Service account username and password
-- Choose "Test connection" to verify that AWS SSO can connect to your Active Directory domain.
-- Choose "Add source" to add your Active Directory as an identity source.
-- Assign Users to AWS SSO  
-**After you have configured AWS SSO to use your on-premise Active Directory, you need to assign your users to AWS SSO. To do this, follow these steps:**
-- In the AWS SSO console, choose the "Users" tab.
-- Choose "Add user", and then enter the user's name and email address.
-- Choose "Create user".
-- Choose the user you just created and choose "Edit".
-- Choose "Assign access" and then choose the AWS accounts and roles that the user should have access to.
-- Choose "Save changes" to assign the user to AWS SSO.
-### Test Your Setup
-**After you have assigned your users to AWS SSO, you should test your setup to ensure that it is working correctly. To do this, follow these steps:**
-- Sign out of your AWS account.
-- Go to the AWS SSO user portal URL that you specified when you set up AWS SSO.
-- Enter your email address and password.
-- Choose "Sign in".
-- You should now be signed in to your AWS account.
-# Conclusion
-- In this guide, we have shown you how to set up AWS Single Sign-On for on-premise Active Directory users. By following these steps, you can centralize access to multiple AWS accounts and business applications, making it easier to manage access and ensure security across your organization.
+This guide will show you how to set up AWS Single Sign-On (SSO) with an on-premises Active Directory (AD) for secure access to AWS resources. By following these steps, you can grant your users secure access to AWS resources without the need for separate usernames and passwords.
+
+## Prerequisites
+
+Before you begin, make sure that you have the following:
+
+- An AWS account with Administrator permissions.
+- An on-premises Active Directory (AD) with domain administrator privileges.
+
+## Step 1: Set up AWS SSO
+
+1. Open the AWS SSO console.
+
+2. Choose "Directory" on the left navigation menu.
+
+3. Select "Add a new directory".
+
+4. Select "Active Directory" and then click "Next".
+
+5. Enter your on-premises AD directory details and then click "Next".
+
+6. Choose the AD domain and OU that you want to use, and then click "Next".
+
+7. Review the directory information and then click "Create directory".
+
+## Step 2: Connect AWS SSO to Your On-premises AD
+
+1. Open the AWS SSO console.
+
+2. Choose "Directory" on the left navigation menu.
+
+3. Select the on-premises AD directory that you created in Step 1.
+
+4. Choose "Connect directory".
+
+5. Review the prerequisites and then click "Next".
+
+6. Enter your AD administrator credentials and then click "Next".
+
+7. Choose the VPC that you want to use and then click "Next".
+
+8. Review the connectivity information and then click "Connect directory".
+
+## Step 3: Define Permission Sets in AWS SSO
+
+1. Open the AWS SSO console.
+
+2. Choose "Permission sets" on the left navigation menu.
+
+3. Choose "Create permission set".
+
+4. Enter a name and description for the permission set.
+
+5. Choose the AWS accounts and applications that the permission set can access.
+
+6. Click "Create".
+
+## Step 4: Add Users to AWS SSO
+
+1. Open the AWS SSO console.
+
+2. Choose "Users" on the left navigation menu.
+
+3. Create an AD group and add the users that you want to grant access to AWS SSO to the group.
+
+4. Select the application to which you want to grant access.
+
+5. Click "Assign users".
+
+6. Select the AD group that you created in Step 3, and then click "Next".
+
+7. Choose the type of access you want to grant, such as "Read only" or "Write".
+
+8. Click "Next" to review the access summary.
+
+9. Click "Finish" to complete the assignment process.
+
+10. Repeat these steps for each AWS account or application that you want to assign users to.
+
+## Step 5: Test the Configuration
+
+After you have assigned users to AWS accounts and applications, you can test the configuration to ensure that it is working correctly. To do this, follow these steps:
+
+1. Log out of the AWS SSO user portal.
+
+2. Log back in using your on-premises AD credentials.
+
+3. Click on "AWS accounts" or "Applications" on the left navigation menu to verify that you can access the resources that you were granted access to.
+
+
+
+# Optional: Use AWS Managed Microsoft AD
+
+Instead of using an on-premises AD, you can use AWS Managed Microsoft AD as your identity source for AWS SSO. To do this, follow these steps:
+
+## Step 1: Create an AWS Managed Microsoft AD directory.
+
+1. Open the AWS Management Console, navigate to the AWS Directory Service, and select "Directories" from the sidebar.
+
+2. Click the "Create Directory" button, and select "AWS Managed Microsoft AD".
+
+3. Choose the domain name for your AWS Managed Microsoft AD directory, and configure the directory settings.
+
+4. Choose the VPC and subnets where you want to launch your AWS Managed Microsoft AD directory, and specify the administrative password.
+
+5. Review the details and click "Create Microsoft AD".
+
+6. Wait for the directory status to become "Active" before proceeding to the next step.
+
+## Step 2: Connect your AWS SSO instance to your AWS Managed Microsoft AD directory.
+
+1. In the AWS SSO console, select the "AWS accounts" tab.
+
+2. Under "Identity source", select "AWS Managed Microsoft AD".
+
+3. Enter the DNS name of your AWS Managed Microsoft AD directory, which you can find in the AWS Directory Service console.
+
+4. Enter the credentials of an AWS Managed Microsoft AD user that has permissions to create trust relationships. This user must be in the "Administrators" group of your AWS Managed Microsoft AD directory.
+
+5. Follow the prompts to complete the connection. 
+
+## Step 3: Add users and groups to your AWS Managed Microsoft AD directory, and then assign them permission sets in the AWS SSO console.
+
+1. In the AWS SSO console, navigate to the "Users and groups" tab.
+
+2. Select "Add user", and enter the details for the user.
+
+3. To add groups, select "Add group", and enter the details for the group.
+
+4. Select the "Permission sets" tab, and select the permission set you want to assign to the user or group.
+
+5. Click "Assign access", and select the user or group.
+
+Congratulations, you can now use AWS Managed Microsoft AD as your identity source for AWS SSO!
