@@ -108,4 +108,50 @@ def lambda_handler(event, context):
 
 ![picture22](https://github.com/Lihle80/AWS/blob/main/Automated-EC2-Control-using-Lambda-and-Events/images/22.-Ec2-instances-are-stopped.png)
 - EC2 instances Stopped
-- DO the same for the start function
+- Do the same for the start function
+- Create a function which will recover stopped  instances
+- Copy and paste this code into the function and deploy the function
+
+```
+import boto3
+import os
+import json
+
+region = 'us-east-1'
+ec2 = boto3.client('ec2',region_name=region
+
+def lambda_handler(event, context):
+    print("Event Recieved: " json.dumps(event))
+    instance=[ event['detail']['instance-id'] ]
+    ec2.start_instances(InstanceIds=instances)
+    print('protected instance stopped - starting up instance: ' + str(instances))
+```
+- This code will read events from eventbridge, when an instance is stopped this function will be triggered and a the instance will be started again
+- Navigate to EventBridge and _"create rule"_
+
+![picture27](https://github.com/Lihle80/AWS/blob/main/Automated-EC2-Control-using-Lambda-and-Events/images/27.-nav-to-eventbridge-and-create-rule.png)
+- Give the rule a name, Rule type should be rule with pattern
+
+![picture28](https://github.com/Lihle80/AWS/blob/main/Automated-EC2-Control-using-Lambda-and-Events/images/28.-enter-rule-name.png)
+- Select AWS events
+
+![picture29](https://github.com/Lihle80/AWS/blob/main/Automated-EC2-Control-using-Lambda-and-Events/images/29.-select-AWS-events...-and-scroll-down-to-event-pattern.png)
+- Enter the following
+
+![picture30](https://github.com/Lihle80/AWS/blob/main/Automated-EC2-Control-using-Lambda-and-Events/images/30.-under-event-pattern-enter.png)
+- Select the sample events
+
+![picture31](https://github.com/Lihle80/AWS/blob/main/Automated-EC2-Control-using-Lambda-and-Events/images/31.-select-sample-events.png)
+- Select Target
+
+![picture32](https://github.com/Lihle80/AWS/blob/main/Automated-EC2-Control-using-Lambda-and-Events/images/32.-select-target.png)
+- Create Rule
+- Now Stop both instances
+
+![picture34](https://github.com/Lihle80/AWS/blob/main/Automated-EC2-Control-using-Lambda-and-Events/images/34.-stopping-both-instances.png)
+- instance auto starts up again
+- and is Running
+
+_**See Screenshots Below**_
+![picture35](https://github.com/Lihle80/AWS/blob/main/Automated-EC2-Control-using-Lambda-and-Events/images/35.-instance1-auto-starts-on-its-own-because-of-rule.png)
+![picture36](https://github.com/Lihle80/AWS/blob/main/Automated-EC2-Control-using-Lambda-and-Events/images/36.-instance-running.png)
