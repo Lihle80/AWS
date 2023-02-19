@@ -97,3 +97,15 @@ def lambda_handler(event, context):
 - Create an Environmet Variable and paste both EC2 instane ID's, ensure there are no spaces between the 2 ID's the only thing seperating them should be a comma (,)
 
 ![picture19](https://github.com/Lihle80/AWS/blob/main/Automated-EC2-Control-using-Lambda-and-Events/images/19.-name-the-variable-according-to-the-name-in-th-code-and-paste-in-both-instance-ID's-without-spaces(do-the-same-for-both-functions).png)
+- Do this for both functions
+- Under Test create a new event and test the function
+
+![picture20](https://github.com/Lihle80/AWS/blob/main/Automated-EC2-Control-using-Lambda-and-Events/images/20.-if-you-select-the-stop-function-and-click-on-test-and-test.png)
+- If the test was a success the Test Logs should be as follows
+
+![picture21](https://github.com/Lihle80/AWS/blob/main/Automated-EC2-Control-using-Lambda-and-Events/images/21.-logs-output.png)
+- Navigate to EC2 to see if the instances are really stopped
+
+![picture22](https://github.com/Lihle80/AWS/blob/main/Automated-EC2-Control-using-Lambda-and-Events/images/22.-Ec2-instances-are-stopped.png)
+- EC2 instances Stopped
+- DO the same for the start function
