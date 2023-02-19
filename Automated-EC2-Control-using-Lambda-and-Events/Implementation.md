@@ -44,7 +44,7 @@ This Policy gives lambda permissions to...
 - then name the policy and create the policy
 - Now move back to creating the role and select the policy you just created
 
-![picture7](https://github.com/Lihle80/AWS/blob/main/Automated-EC2-Control-using-Lambda-and-Events/images/7.-back-to-role-creation%2C-select-new-policy.png)
+![picture7](https://github.com/Lihle80/AWS/blob/main/Automated-EC2-Control-using-Lambda-and-Events/images/7.-back-to-role-creation,-select-new-policy.png)
 - Name the Role and create it
 - Navigate to EC2 and copy the each _"instance ID"_
 - Navigate to lambda and _"create function"_
