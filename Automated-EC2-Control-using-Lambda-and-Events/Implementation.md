@@ -54,7 +54,7 @@ This Policy gives lambda permissions to...
 - select the execution role we created
 
 ![picture12](https://github.com/Lihle80/AWS/blob/main/Automated-EC2-Control-using-Lambda-and-Events/images/12.-select-execution-role-we-created.png)
-- enter this code onto your function
+- enter paste this code into your function and deploy
 ```
 import boto3
 import os
@@ -64,7 +64,36 @@ region = 'us-east-1'
 ec2 = boto3.client('ec2',region_name=region
 
 def lambda_handler(event, context):
-    instance=os.environ['EC2_INSTANCES].split(",")
+    instance=os.environ['EC2_INSTANCES'].split(",")
     ec2.start_instances(InstanceIds=instances)
     print('started instances: ' + str(instances))
 ```
+
+**_See Screenshot Below_**
+![picture14](https://github.com/Lihle80/AWS/blob/main/Automated-EC2-Control-using-Lambda-and-Events/images/14.-paste-that-code-into-function-and-deploy.png)
+- This code allows the lambda function to start instances
+- Now create the lambda function which will be used to stop instances
+
+![picture15](https://github.com/Lihle80/AWS/blob/main/Automated-EC2-Control-using-Lambda-and-Events/images/15.-create-function-for-stopping-instances.png)
+- copy and paste this code to this neew function and deploy it
+
+```
+import boto3
+import os
+import json
+
+region = 'us-east-1'
+ec2 = boto3.client('ec2',region_name=region
+
+def lambda_handler(event, context):
+    instance=os.environ['EC2_INSTANCES'].split(",")
+    ec2.stop_instances(InstanceIds=instances)
+    print('stopped instances: ' + str(instances))
+```
+
+- Under _"Configuration"_  select _"Environment Variable"_
+
+![picture18](https://github.com/Lihle80/AWS/blob/main/Automated-EC2-Control-using-Lambda-and-Events/images/18.-under-config-edit-environmental-variables.png)
+- Create an Environmet Variable and paste both EC2 instane ID's, ensure there are no spaces between the 2 ID's the only thing seperating them should be a comma (,)
+
+![picture19](https://github.com/Lihle80/AWS/blob/main/Automated-EC2-Control-using-Lambda-and-Events/images/19.-name-the-variable-according-to-the-name-in-th-code-and-paste-in-both-instance-ID's-without-spaces(do-the-same-for-both-functions).png)
